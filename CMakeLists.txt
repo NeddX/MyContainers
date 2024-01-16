@@ -22,12 +22,21 @@ file(GLOB_RECURSE SRC_FILES "src/*.cpp")
 file(GLOB_RECURSE HDR_FILES "src/*.h")
 file(GLOB_RECURSE HPP_FILES "src/*.hpp")
 
+# Create a custom build command and a dummy target for it to copy
+# compile_commands.json to the source directory for LSPs.
+add_custom_command(
+  OUTPUT ${CMAKE_SOURCE_DIR}/compile_commands.json
+  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/compile_commands.json
+          ${CMAKE_SOURCE_DIR}/compile_commands.json
+  DEPENDS ${CMAKE_BINARY_DIR}/compile_commands.json
+  COMMENT "Copying compile_commands.json...")
+
+add_custom_target(copy_compile_commands ALL
+                  DEPENDS ${CMAKE_SOURCE_DIR}/compile_commands.json)
+
 # Recursively fetch all the subdirectories inside src/ so that I can make them
 # public.
-file(
-  GLOB SRC_SUB_DIRS
-  LIST_DIRECTORIES true
-  "${CMAKE_CURRENT_SOURCE_DIR}/src")
+file(GLOB SRC_SUB_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/src/*")
 
 # Create our library target.
 add_library(MinLib ${SRC_FILES} ${HDR_FILES} ${HPP_FILES})
@@ -38,10 +47,8 @@ add_library(MinLib ${SRC_FILES} ${HDR_FILES} ${HPP_FILES})
 # Make src/ public to include header from.
 target_include_directories(MinLib PUBLIC src/)
 
-message(":: BRUH :: ${SRC_SUB_DIRS}")
-
-# Same with every subdirectory of src/.
-foreach(SRC_SUB_DIRS ${DIR})
-  message("SRC :: ${DIR}")
-  target_include_directories(MinLib PUBLIC ${DIR})
+foreach(SUBDIR ${SRC_SUB_DIRS})
+  if(IS_DIRECTORY ${SUBDIR})
+    target_include_directories(MinLib PUBLIC ${SUBDIR})
+  endif()
 endforeach()
