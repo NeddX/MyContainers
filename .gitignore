@@ -1,0 +1,5 @@
+compile_commands.json
+builds/
+build/
+.ignore/
+.ignore_*/
