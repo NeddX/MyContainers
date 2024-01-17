@@ -10,10 +10,9 @@ growing and shrinking.
 Because of the way =my::Vec<T>= stores its elements in memory, It is possible to access each individual
 element not only by using iterators (=my::Vec<T>::Iterator=, =my::Vec<T>::ConstIterator=) and the provided methods (=At()=, =Front()=, =Back()= etc...) and operators (=operator[]=), but it is also possible to perform pointer arithmetic on the pointer returned by =Data()=.
 
-=my::Vec<T>= also dynamically manages its memory so it grow and shrink or dispose and it usually allocates
-more memory to reduce the chance of frequent reallocation.
+=my::Vec<T>= also dynamically manages its memory so it can grow, shrink and dispose. Vector usually allocates more memory to reduce the chance of frequent reallocation.
 
-The vector classes fully supports move semantics thus utilizes move semantics for its elements as well.
+The Vector class fully supports move semantics thus expects its elements to have implemented move semantics as well.
 
 ** Constructors
 =my::Vec<T>()=: The default constructor for the =my::Vec<T>= class. It performs no allocations.
