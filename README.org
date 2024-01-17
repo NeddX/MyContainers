@@ -1,11 +1,11 @@
 * MyContainers
-Welcome to MyContainers, a collection of C++ implementations for fundamental data structures. This repository includes my personal implementations of Vector, BinaryTree, Singly Linked List, Hashmap, Queue, and Graph.
+Welcome to MyContainers, a collection of C++ implementations for fundamental data structures. This repository includes my personal implementations of Vector, Binary Tree, Singly Linked List, Hash Map, Queue, and Graph.
 
 * Table of Contents
 - Vector
 - BinaryTree
-- Singly Linked List
-- Hashmap
+- ForwardList
+- HashMap
 - Queue
 - Graph
 - Vector
@@ -59,7 +59,7 @@ int main()
     return 0;
 }
 #+END_SRC
-** Forward Linked List
+** ForwardList
 The ForwardList class is an implementation of a singly linked list with methods for insertion, deletion, and traversal.
 
 Usage example:
