@@ -1,5 +1,6 @@
 #+title: The Vector Class
 #+author: Neddidenrohu
+#+OPTIONS: \n:t
 
 * Vec<T> in my
 ** Overview
