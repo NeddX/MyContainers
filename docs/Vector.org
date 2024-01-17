@@ -16,46 +16,46 @@ The Vector class fully supports move semantics thus expects its elements to have
 
 ** Constructors
 =my::Vec<T>()=: The default constructor for the =my::Vec<T>= class. It performs no allocations.\\
-=my::Vec<T>(usize size)=: Construct a vector with a predefined size.
-=my::Vec<T>(std::initializer_list<T>)=: Construct a vector based on an =std::initializer_list<T>=.
+=my::Vec<T>(usize size)=: Construct a vector with a predefined size.\\
+=my::Vec<T>(std::initializer_list<T>)=: Construct a vector based on an =std::initializer_list<T>=.\\
 
 ** Public member functions
-=my::Vec<T>::Size() -> usize=: Returns the current size of the vector.
-=my::Vec<T>::Capacity() -> usize=: Returns the total amount of memory allocated for the vector.
-=my::Vec<T>::Empty() -> bool=: Returns whenever the vector is empty or not.
-=my::Vec<T>::Data() -> T*=: Return a pointer to the first byte of the internal buffer.
-=my::Vec<T>::MaxSize() -> uszie=: Returns the theoretical maximum amount of elements the container can hold.
-=my::Vec<T>::begin() -> my::Vec<T>::Iterator=: Creates and returns an iterator to the first element.
-=my::Vec<T>::end() -> my::Vec<T>::Iterator=: Creates and returns an end iterator.
-=my::Vec<T>::cbegin() -> my::Vec<T>::ConstIterator=: Same =begin()= except it returns a =ConstIterator=.
-=my::Vec<T>::cend() -> my::Vec<T>::ConstIterator=: Same as =end()= except it returns a =ConstIterator=.
-=my::Vec<T>::Push(T)=: Push an element at the end of the vector.
-=my::Vec<T>::Pop() -> T=: Pop the last element and return it.
-=my::Vec<T>::Front() -> T&=: Return a reference to the first element.
-=my::Vec<T>::Back() -> T&=: Return a reference to the last element.
-=my::Vec<T>::At(usize) -> T&=: Returns the element at provided index otherwise throws an exception.
-=my::Vec<T>::Assign(usize n, T& e) -> T&=: Assign =e=, =n= times inside the vector.
-=my::Vec<T>::Assign(ConstIterator begin, ConstIterator end)=: Assign the vector from =begin= to =end=.
-=my::Vec<T>::Assign(std::initializer_list<T> list)=: Assign the vector from =list=.
-=my::Vec<T>::Swap(my::Vec<T>&)=: Swap the two vectors.
-=my::Vec<T>::Resize(uszie)=: Resize the vector.
-=my::Vec<T>::Insert(ConstIterator pos, T& value)=: Insert =value= at =pos=.
-=my::Vec<T>::Insert(ConstIterator pos, ConstIterator first, ConstIterator last)=: Insert the range from =frist= to =last= in =pos=.
-=my::Vec<T>::Erase(ConstIterator pos)=: Erase the element at =pos=.
-=my::Vec<T>::Reserve(usize)=: Manually reserve additional space for the vector. NOTE: This does not resize your vector, it simply allocates extra space but does not change the size.
-=my::Vec<T>::ShrinkToFit()=: Releases additional allocated memory back and leaves just enough to hold the =sizeof(T) * m_Size= elements inside the vector.
-=my::Vec<T>::Clear()=: Clear the vector and set the size to 0.
-=my::Vec<T>::Emplace(ConstIterator pos, TArgs&&...)=: Construct a =T= at =pos= in place.
-=my::Vec<T>::EmplaceBack(TArgs&&...)=: Construct a =T= at the end of the vector in place.
+=my::Vec<T>::Size() -> usize=: Returns the current size of the vector.\\
+=my::Vec<T>::Capacity() -> usize=: Returns the total amount of memory allocated for the vector.\\
+=my::Vec<T>::Empty() -> bool=: Returns whenever the vector is empty or not.\\
+=my::Vec<T>::Data() -> T*=: Return a pointer to the first byte of the internal buffer.\\
+=my::Vec<T>::MaxSize() -> uszie=: Returns the theoretical maximum amount of elements the container can hold.\\
+=my::Vec<T>::begin() -> my::Vec<T>::Iterator=: Creates and returns an iterator to the first element.\\
+=my::Vec<T>::end() -> my::Vec<T>::Iterator=: Creates and returns an end iterator.\\
+=my::Vec<T>::cbegin() -> my::Vec<T>::ConstIterator=: Same =begin()= except it returns a =ConstIterator=.\\
+=my::Vec<T>::cend() -> my::Vec<T>::ConstIterator=: Same as =end()= except it returns a =ConstIterator=.\\
+=my::Vec<T>::Push(T)=: Push an element at the end of the vector.\\
+=my::Vec<T>::Pop() -> T=: Pop the last element and return it.\\
+=my::Vec<T>::Front() -> T&=: Return a reference to the first element.\\
+=my::Vec<T>::Back() -> T&=: Return a reference to the last element.\\
+=my::Vec<T>::At(usize) -> T&=: Returns the element at provided index otherwise throws an exception.\\
+=my::Vec<T>::Assign(usize n, T& e) -> T&=: Assign =e=, =n= times inside the vector.\\
+=my::Vec<T>::Assign(ConstIterator begin, ConstIterator end)=: Assign the vector from =begin= to =end=.\\
+=my::Vec<T>::Assign(std::initializer_list<T> list)=: Assign the vector from =list=.\\
+=my::Vec<T>::Swap(my::Vec<T>&)=: Swap the two vectors.\\
+=my::Vec<T>::Resize(uszie)=: Resize the vector.\\
+=my::Vec<T>::Insert(ConstIterator pos, T& value)=: Insert =value= at =pos=.\\
+=my::Vec<T>::Insert(ConstIterator pos, ConstIterator first, ConstIterator last)=: Insert the range from =frist= to =last= in =pos=.\\
+=my::Vec<T>::Erase(ConstIterator pos)=: Erase the element at =pos=.\\
+=my::Vec<T>::Reserve(usize)=: Manually reserve additional space for the vector. NOTE: This does not resize your vector, it simply allocates extra space but does not change the size.\\
+=my::Vec<T>::ShrinkToFit()=: Releases additional allocated memory back and leaves just enough to hold the =sizeof(T) * m_Size= elements inside the vector.\\
+=my::Vec<T>::Clear()=: Clear the vector and set the size to 0.\\
+=my::Vec<T>::Emplace(ConstIterator pos, TArgs&&...)=: Construct a =T= at =pos= in place.\\
+=my::Vec<T>::EmplaceBack(TArgs&&...)=: Construct a =T= at the end of the vector in place.\\
 
 ** Member operators
-=my::Vec<T>::operator[](usize) -> T&=: Subscript the vector using an index by without bounds checking so be aware. For bounds checking use =my::Vec<T>::At(usize)=.
-=my::Vec<T>::operator<<(my::Vec<T>& other) -> my::Vec<T>&=: Merge =other= into the =current= vector.
-=my::Vec<T>::operator<<(std::ostream&, my::Vec<T>&) -> std::ostream&:= Stream insertion operator, useful for streaming and serialization or just =std::cout=-ing the vector.
+=my::Vec<T>::operator[](usize) -> T&=: Subscript the vector using an index by without bounds checking so be aware. For bounds checking use =my::Vec<T>::At(usize)=.\\
+=my::Vec<T>::operator<<(my::Vec<T>& other) -> my::Vec<T>&=: Merge =other= into the =current= vector.\\
+=my::Vec<T>::operator<<(std::ostream&, my::Vec<T>&) -> std::ostream&:= Stream insertion operator, useful for streaming and serialization or just =std::cout=-ing the vector.\\
 
 ** Iterators
-=my::Vec<T>::Iterator=: A Random Access Iterator provided by the =my::Vec<T>= class as a nested class. It provides everything you would expect from a Random Access Iterator.
-=my::Vec<T>::ConstIterator=: Same as the =my::Vec<T>::Iterator= except it returns a =const T&= when dereferencing.
+=my::Vec<T>::Iterator=: A Random Access Iterator provided by the =my::Vec<T>= class as a nested class. It provides everything you would expect from a Random Access Iterator.\\
+=my::Vec<T>::ConstIterator=: Same as the =my::Vec<T>::Iterator= except it returns a =const T&= when dereferencing.\\
 
 * Vec<bool> in my (Boolean specialization)
 ** Overview
@@ -70,20 +70,20 @@ Since the minimum amount of memory computers and read and write to is a single b
 The =my::Vec<bool>::BitRef= class imitates as a reference on a single bit by providing clever overloads on the dereference, equals, bool cast, bitwise operators but in actuality it pefroms clever bit manipulation to succeed at the illusion.
 
 *** Overloaded operators
-=my::Vec<bool>::BitRef::operator bool()=: Checks if the current bit is set or not, if set then returns =true=, =false= otherwise.
-=my::Vec<bool>::BitRef::operator~()=: Negates the bit.
-=my::Vec<bool>::BitRef::operator&(bool)=: Performs a bitwise =AND=.
-=my::Vec<bool>::BitRef::operator|(bool)=: Performs a bitwise =OR=.
-=my::Vec<bool>::BitRef::operator^(bool)=: Performs a bitwise =XOR=.
+=my::Vec<bool>::BitRef::operator bool()=: Checks if the current bit is set or not, if set then returns =true=, =false= otherwise.\\
+=my::Vec<bool>::BitRef::operator~()=: Negates the bit.\\
+=my::Vec<bool>::BitRef::operator&(bool)=: Performs a bitwise =AND=.\\
+=my::Vec<bool>::BitRef::operator|(bool)=: Performs a bitwise =OR=.\\
+=my::Vec<bool>::BitRef::operator^(bool)=: Performs a bitwise =XOR=.\\
 
 *** Public member functions
-=my::Vec<bool>::operator~()=: Negates the entire bool vector.
-=my::Vec<bool>::operator&(my::Vec<bool>&)=: Performs a bitwise =AND= on the entire bool vector with the other bool vector.
-=my::Vec<bool>::operator|(my::Vec<bool>&)=: Performs a bitwise =OR= on the entire bool vector with the other bool vector.
-=my::Vec<bool>::operator^(my::Vec<bool>&)=: Performs a bitwise =XOR= on the entire bool vector with the other bool vector.
-=my::Vec<bool>::operator<<(usize n)=: Performs a bitwise shift to the left on the entire bool vector by =n= times.
-=my::Vec<bool>::operator>>(usize n)=: Performs a bitwise shift to the right on the entire bool vector by =n= times.
-=my::Vec<bool>::Flip() -> my::Vec<bool>&=: Flips the entire bool vector.
-=my::Vec<bool>::Any() -> bool=: Returns =true= if any of the bits are set, =false= otherwise.
-=my::Vec<bool>::Reset()=: Reset the entire bool vector.
-=my::Vec<bool>>ToString() -> std::string=: Returns a string representation of the entire bit set.
+=my::Vec<bool>::operator~()=: Negates the entire bool vector.\\
+=my::Vec<bool>::operator&(my::Vec<bool>&)=: Performs a bitwise =AND= on the entire bool vector with the other bool vector.\\
+=my::Vec<bool>::operator|(my::Vec<bool>&)=: Performs a bitwise =OR= on the entire bool vector with the other bool vector.\\
+=my::Vec<bool>::operator^(my::Vec<bool>&)=: Performs a bitwise =XOR= on the entire bool vector with the other bool vector.\\
+=my::Vec<bool>::operator<<(usize n)=: Performs a bitwise shift to the left on the entire bool vector by =n= times.\\
+=my::Vec<bool>::operator>>(usize n)=: Performs a bitwise shift to the right on the entire bool vector by =n= times.\\
+=my::Vec<bool>::Flip() -> my::Vec<bool>&=: Flips the entire bool vector.\\
+=my::Vec<bool>::Any() -> bool=: Returns =true= if any of the bits are set, =false= otherwise.\\
+=my::Vec<bool>::Reset()=: Reset the entire bool vector.\\
+=my::Vec<bool>>ToString() -> std::string=: Returns a string representation of the entire bit set.\\
