@@ -78,13 +78,13 @@ The =my::Vec<bool>::BitRef= class imitates as a reference on a single bit by pro
 =my::Vec<bool>::BitRef::operator^(bool)=: Performs a bitwise =XOR=.
 
 *** Public member functions
-=my::Vec<bool>::operator~()=: Negates the entire bool vector. \\
-=my::Vec<bool>::operator&(my::Vec<bool>&)=: Performs a bitwise =AND= on the entire bool vector with the other bool vector. \\
-=my::Vec<bool>::operator|(my::Vec<bool>&)=: Performs a bitwise =OR= on the entire bool vector with the other bool vector. 
-=my::Vec<bool>::operator^(my::Vec<bool>&)=: Performs a bitwise =XOR= on the entire bool vector with the other bool vector. 
-=my::Vec<bool>::operator<<(usize n)=: Performs a bitwise shift to the left on the entire bool vector by =n= times. 
-=my::Vec<bool>::operator>>(usize n)=: Performs a bitwise shift to the right on the entire bool vector by =n= times. 
-=my::Vec<bool>::Flip() -> my::Vec<bool>&=: Flips the entire bool vector. 
+=my::Vec<bool>::operator~()=: Negates the entire bool vector.
+=my::Vec<bool>::operator&(my::Vec<bool>&)=: Performs a bitwise =AND= on the entire bool vector with the other bool vector.
+=my::Vec<bool>::operator|(my::Vec<bool>&)=: Performs a bitwise =OR= on the entire bool vector with the other bool vector.
+=my::Vec<bool>::operator^(my::Vec<bool>&)=: Performs a bitwise =XOR= on the entire bool vector with the other bool vector.
+=my::Vec<bool>::operator<<(usize n)=: Performs a bitwise shift to the left on the entire bool vector by =n= times.
+=my::Vec<bool>::operator>>(usize n)=: Performs a bitwise shift to the right on the entire bool vector by =n= times.
+=my::Vec<bool>::Flip() -> my::Vec<bool>&=: Flips the entire bool vector.
 =my::Vec<bool>::Any() -> bool=: Returns =true= if any of the bits are set, =false= otherwise. 
 =my::Vec<bool>::Reset()=: Reset the entire bool vector. 
 =my::Vec<bool>>ToString() -> std::string=: Returns a string representation of the entire bit set. 
