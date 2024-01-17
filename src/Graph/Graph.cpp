@@ -20,7 +20,7 @@ namespace my {
     {
         if (IsVertexValid(vertex))
         {
-            m_Vec.erase(m_Vec.begin(), std::remove(m_Vec.begin(), m_Vec.end(), vertex));
+            m_Vec[vertex].clear();
             for (auto& e : m_Vec)
                 e.erase(e.begin(), std::remove(e.begin(), e.end(), vertex));
         }
@@ -111,31 +111,4 @@ namespace my {
         else
             throw std::invalid_argument("Vertex (or verticies) are(is) invalid.");
     }
-
-    /*
-    std::vector<int> WeightedGraph::Djikstra(const int srcVertex, const int destVertex) const 
-    {
-        std::vector<int> fast(m_Vec.size(), std::numeric_limits<int>::max());
-        fast[srcVertex] = 0;
-        
-        std::function<void(const int, std::vector<int>&)> recv = [&](const int srcVertex, std::vector<int>& fast)
-        {
-            if (fast[srcVertex] == INT_MAX)
-                return;
-
-            for (const auto[x, w]& : m_Vec[srcVertex])
-            {
-                int add = fast[srcVertex] + w;
-                if (add < fast[x])
-                {
-                    fast[x] = add;
-                    recv(x, fast);
-                }
-            }
-        };
-
-        recv(srcVertex, fast);
-        return fast;
-    }
-    */
 } // namespace my

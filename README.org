@@ -1,5 +1,9 @@
-* MyContainers
-Welcome to MyContainers, a collection of C++ implementations for fundamental data structures. This repository includes my personal implementations of Vector, Binary Tree, Singly Linked List, Hash Map, Queue, and Graph.
+#+title: MyContainers
+#+author: Neddiendrohu
+
+Welcome to MyContainers, a collection of C++ implementations for fundamental data structures in STL.
+This repository includes my personal implementations of Vector, Binary Tree, Singly Linked List, Hash Map, Queue, and Graph.
+Below you can find brief overview of the containers, for more detailed documentation please refeer to the =docs= folder.
 
 * Table of Contents
 - Vector

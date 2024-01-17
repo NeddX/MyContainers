@@ -130,7 +130,7 @@ namespace my {
 
     public:
         Vec() = default;
-        Vec(const usize size) : m_Size(size), m_Capacity(size * 2), m_Buffer(new T[m_Capacity]) {}
+        explicit Vec(const usize size) : m_Size(size), m_Capacity(size * 2), m_Buffer(new T[m_Capacity]) {}
         Vec(const std::initializer_list<T> list)
         {
             m_Size     = list.size();
@@ -175,6 +175,8 @@ namespace my {
     public:
         inline Iterator      begin() noexcept { return Iterator(m_Buffer); }
         inline Iterator      end() noexcept { return Iterator(m_Buffer + m_Size); }
+        inline ConstIterator begin() const noexcept { return ConstIterator(m_Buffer); }
+        inline ConstIterator end() const noexcept { return ConstIterator(m_Buffer + m_Size); }
         inline ConstIterator cbegin() const noexcept { return ConstIterator(m_Buffer); }
         inline ConstIterator cend() const noexcept { return ConstIterator(m_Buffer + m_Size); }
 
@@ -222,15 +224,15 @@ namespace my {
         }
 
     public:
-        void Push(const T& e)
+        void Push(T e)
         {
             if (m_Size >= m_Capacity)
             {
                 Realloc(m_Size + 1);
-                m_Buffer[m_Size - 1] = e;
+                m_Buffer[m_Size - 1] = std::move(e);
             }
             else
-                m_Buffer[m_Size++] = e;
+                m_Buffer[m_Size++] = std::move(e);
         }
         inline T Pop()
         {

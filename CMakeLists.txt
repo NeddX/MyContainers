@@ -7,6 +7,9 @@ project("MinLib" LANGUAGES CXX)
 # This is for LSPs.
 set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 
+# Because I love C++20.
+set(CMAKE_CXX_STANDARD 20)
+
 # Copy our beloved compile_commands.json for LSPs.
 # configure_file("${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json"
 # "${CMAKE_CURRENT_SOURCE_DIR}" COPYONLY)
