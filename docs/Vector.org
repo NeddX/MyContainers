@@ -21,7 +21,7 @@ The Vector class fully supports move semantics thus expects its elements to have
 =my::Vec<T>(std::initializer_list<T>)=: Construct a vector based on an =std::initializer_list<T>=.
 
 ** Public member functions
-=my::Vec<T>::Size() -> usize=: Returns the current size of the vector.
+=my::Vec<T>::Size() -> usize=: Returns the current size of the vector. \\
 =my::Vec<T>::Capacity() -> usize=: Returns the total amount of memory allocated for the vector.
 =my::Vec<T>::Empty() -> bool=: Returns whenever the vector is empty or not.
 =my::Vec<T>::Data() -> T*=: Return a pointer to the first byte of the internal buffer.
