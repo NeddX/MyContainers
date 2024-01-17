@@ -1,0 +1,151 @@
+* MyContainers
+Welcome to MyContainers, a collection of C++ implementations for fundamental data structures. This repository includes my personal implementations of Vector, BinaryTree, Singly Linked List, Hashmap, Queue, and Graph.
+
+* Table of Contents
+- Vector
+- BinaryTree
+- Singly Linked List
+- Hashmap
+- Queue
+- Graph
+- Vector
+- Stack
+
+** Vector
+The Vector class in this repository is an implementation of a dynamic array that can resize itself as needed. It provides functionalities similar to those of std::vector in the C++ Standard Library.
+
+Usage example:
+
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <Vector.h>
+
+int main()
+{
+    my::Vec<int> vec{};
+
+    vec.Push(10);
+    vec.Push(5);
+    vec.Push(1);
+
+    for (const auto& e : vec)
+    {
+        std::cout << element << " ";
+        // Or just cout the vector itself
+        // std::cout << vec << std::endl;
+    }
+
+    return 0;
+}
+#+END_SRC
+** BinaryTree
+The BinaryTree class implements a binary tree data structure with basic traversal and manipulation methods.
+
+Usage example:
+
+#+BEGIN_SRC cpp
+#include "BinaryTree.h"
+
+int main()
+{
+    my::BinaryTree<int> tree{};
+
+    tree.Insert(5);
+    tree.Insert(15);
+    tree.Insert(115);
+
+    auto vec = tree.InOrder();
+
+    return 0;
+}
+#+END_SRC
+** Forward Linked List
+The ForwardList class is an implementation of a singly linked list with methods for insertion, deletion, and traversal.
+
+Usage example:
+
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <ForwardList.h>
+
+int main()
+{
+    my::ForwardList<int> list{};
+
+    list.PushFront(10);
+    list.PushFront(13);
+    list.PushFront(12);
+
+    std::cout << list << std::endl;
+
+    return 0;
+}
+#+END_SRC
+** HashMap
+The HashMap class provides a simple hash map implementation with basic key-value pair operations.
+
+Usage example:
+
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <HashMap.h>
+
+int main()
+{
+    my::HashMap<std::string, int> map{};
+
+    map.Insert("one", 1);
+    map.Insert("two", 2);
+    map.Insert("four??", 4);
+
+    std::cout << "Value for key 'two': " << myMap.At("two") << std::endl;
+
+    return 0;
+}
+#+END_SRC
+** Queue
+The Queue class represents a basic queue data structure with enqueue and dequeue operations.
+
+Usage example:
+
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <Queue.h>
+
+int main()
+{
+    my::Queue<int> queue{};
+
+    queue.Push(1);
+    queue.Push(2);
+    queue.Push(3);
+
+    while (!queue.Empty()) {
+        std::cout << myQueue.Pop() << " ";
+    }
+
+    return 0;
+}
+#+END_SRC
+** Graph
+The Graph class is an implementation of an undirected graph with methods for adding vertices and edges, as well as basic graph traversal algorithms.
+
+Usage example:
+
+#+BEGIN_SRC cpp
+#include <Graph.h>
+
+int main()
+{
+    my::Graph<int> graph{};
+
+    graph.AddVertex(1);
+    graph.AddVertex(2);
+    graph.AddEdge(1, 2);
+
+    auto shortest_path = graph.GetShortestPath(1, 2);
+
+    return 0;
+}
+#+END_SRC
+Feel free to explore each container's header and source files for a detailed understanding of the implementations and their methods. If you have any questions or suggestions, please don't hesitate to reach out. Happy coding!
