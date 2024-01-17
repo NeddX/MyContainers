@@ -15,7 +15,7 @@ element not only by using iterators (=my::Vec<T>::Iterator=, =my::Vec<T>::ConstI
 The Vector class fully supports move semantics thus expects its elements to have implemented move semantics as well.
 
 ** Constructors
-=my::Vec<T>()=: The default constructor for the =my::Vec<T>= class. It performs no allocations.\
+=my::Vec<T>()=: The default constructor for the =my::Vec<T>= class. It performs no allocations.\\
 =my::Vec<T>(usize size)=: Construct a vector with a predefined size.
 =my::Vec<T>(std::initializer_list<T>)=: Construct a vector based on an =std::initializer_list<T>=.
 
