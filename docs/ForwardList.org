@@ -1,0 +1,41 @@
+#+title: The Forward List Class
+#+author: Neddidenrohu
+
+* ForwardList<T> in my
+** Overview
+Defined in the =ForwardList.h= header.
+-----
+=my::ForwardList<T>= is a singly linked list, usually linked list's provide a =O(1)= insertion and deletion but I forgot to optimize by keeping track of the last Node so we're stuck with =O(N)= when inserting and/or deleting. Fast random access is not supported but random access is, which is amortized =O(N)=.
+
+The Forward List class also fully supports move semantics thus expects its elements to have implemented move semantics as well.
+
+** Constructors
+- =my::ForwardList<T>()=: The default constructor for the =my::ForwardList<T>= class. It performs no allocations.
+- =my::ForwardList<T>(usize size)=: Construct a list with a predefined size.
+- =my::ForwardList<T>(std::initializer_list<T>)=: Construct a list based on an =std::initializer_list<T>=.
+
+** Public member functions
+- =my::ForwardList<T>::Size() -> usize=: Returns the current size of the list.
+- =my::ForwardList<T>::Empty() -> bool=: Returns whenever the list is empty or not.
+- =my::ForwardList<T>::MaxSize() -> uszie=: Returns the theoretical maximum amount of elements the container can hold.
+- =my::ForwardList<T>::begin() -> my::ForwardList<T>::Iterator=: Creates and returns an iterator to the first element.
+- =my::ForwardList<T>::end() -> my::ForwardList<T>::Iterator=: Creates and returns an end iterator.
+- =my::ForwardList<T>::cbegin() -> my::ForwardList<T>::ConstIterator=: Same =begin()= except it returns a =ConstIterator=.
+- =my::ForwardList<T>::cend() -> my::ForwardList<T>::ConstIterator=: Same as =end()= except it returns a =ConstIterator=.
+- =my::ForwardList<T>::Push(T)=: Push an element at the end of the list.
+- =my::ForwardList<T>::PushFront(T)=: Push an element at the end of the list.
+- =my::ForwardList<T>::Pop() -> T=: Pop the last element and return it.
+- =my::ForwardList<T>::Front() -> T&=: Return a reference to the first element.
+- =my::ForwardList<T>::Clear()=: Clear the entire list.
+- =my::ForwardList<T>::Resize(usize)=: Resize the list.
+- =my::ForwardList<T>::Swap(my::ForwardList<T>&)=: Swap the two lists.
+- =my::ForwardList<T>::Insert(ConstIterator pos, T& value)=: Insert =value= at =pos=.
+- =my::ForwardList<T>::Insert(ConstIterator pos, ConstIterator first, ConstIterator last)=: Insert the range from =frist= to =last= in =pos=.
+- =my::ForwardList<T>::Erase(ConstIterator pos)=: Erase the element at =pos=.
+- =my::ForwardList<T>::Reverse()=: Reverse the entire list.
+- =my::ForwardList<T>::Sort()=: Sort the entire list (uses bubble sort under the hood).
+
+** Member operators
+- =my::ForwardList<T>::operator[](usize)=: Provides a random (but not fast!) access to the elements.
+- =my::ForwardList<T>::operator<<(std::ostream&, my::ForwardList<T>&) -> std::ostream&=: Stream insertion operator, useful for streaming and serialization or just =std::cout=-ing the list.
+=my::Queue<T>::operator<<(std::ostream&, my::Queue<T>&) -> std::ostream&:= Stream insertion operator, useful for streaming and serialization or just =std::cout=-ing the stack.

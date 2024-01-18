@@ -1,0 +1,38 @@
+#+title: The Stack Class
+#+author: Neddidenrohu
+
+* Stack<T> in my
+** Overview
+Defined in the =Stack.h= header.
+-----
+Just like =my::Vec<T>=, =my::Stack<T>= is also a sequential dynamic container that automatically handles the memory management, In fact, the two are almost identical except =my::Stack<T>= removes some of the methods.
+
+Just like the Vector class, the Stack class also fully supports move semantics thus expects its elements to have implemented move semantics as well.
+
+** Constructors
+- =my::Stack<T>()=: The default constructor for the =my::Stack<T>= class. It performs no allocations.
+- =my::Stack<T>(usize size)=: Construct a stack with a predefined size.
+- =my::Stack<T>(std::initializer_list<T>)=: Construct a stack based on an =std::initializer_list<T>=.
+
+** Public member functions
+- =my::Stack<T>::Size() -> usize=: Returns the current size of the stack.
+- =my::Stack<T>::Capacity() -> usize=: Returns the total amount of memory allocated for the stack.
+- =my::Stack<T>::Empty() -> bool=: Returns whenever the stack is empty or not.
+- =my::Stack<T>::Data() -> T*=: Return a pointer to the first byte of the internal buffer.
+- =my::Stack<T>::MaxSize() -> uszie=: Returns the theoretical maximum amount of elements the container can hold.
+- =my::Stack<T>::begin() -> my::Stack<T>::Iterator=: Creates and returns an iterator to the first element.
+- =my::Stack<T>::end() -> my::Stack<T>::Iterator=: Creates and returns an end iterator.
+- =my::Stack<T>::cbegin() -> my::Stack<T>::ConstIterator=: Same =begin()= except it returns a =ConstIterator=.
+- =my::Stack<T>::cend() -> my::Stack<T>::ConstIterator=: Same as =end()= except it returns a =ConstIterator=.
+- =my::Stack<T>::Push(T)=: Push an element at the end of the stack.
+- =my::Stack<T>::Pop() -> T=: Pop the last element and return it.
+- =my::Stack<T>::Front() -> T&=: Return a reference to the first element.
+- =my::Stack<T>::Swap(my::Stack<T>&)=: Swap the two stacks.
+- =my::Stack<T>::Emplace(ConstIterator pos, TArgs&&...)=: Construct a =T= at =pos= in place.
+
+** Member operators
+- =my::Stack<T>::operator<<(std::ostream&, my::Stack<T>&) -> std::ostream&:= Stream insertion operator, useful for streaming and serialization or just =std::cout=-ing the stack.
+
+** Iterators
+- =my::Stack<T>::Iterator=: A Random Access Iterator provided by the =my::Stack<T>= class as a nested class. It provides everything you would expect from a Random Access Iterator.
+- =my::Stack<T>::ConstIterator=: Same as the =my::Stack<T>::Iterator= except it returns a =const T&= when dereferencing.
